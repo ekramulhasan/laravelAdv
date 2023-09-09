@@ -48,4 +48,21 @@ class APIcontroller extends Controller
         return $student_data;
 
     }
+
+
+    public function student_api_withPeremiter($id=null){
+
+        if ($id) {
+            $student_data = Student::find($id);
+        }
+        else{
+            $student_data = Student::all();
+        }
+
+
+        return $student_data;
+
+    }
+
+
 }
