@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\APIcontroller;
+use App\Http\Controllers\APIresource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,7 @@ Route::delete('/delete-data/{id}',[APIcontroller::class,'deleteStudent']);
 Route::get('/search-data/{name}',[APIcontroller::class,'searchStudent']);
 
 Route::post('upload-file',[APIcontroller::class,'fileUpload']);
+
+
+//resource API
+Route::apiResource('post',APIresource::class);
