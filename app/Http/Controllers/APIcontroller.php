@@ -150,4 +150,23 @@ class APIcontroller extends Controller
 }
 
 
+
+public function searchStudent($name){
+
+
+
+    $data = Student::where('name','like',"%".$name."%")->get();
+
+    // if ($data = null) {
+    //     return $data;
+    // }
+
+    return $data;
+
+
+
+
+}
+
+
 }
