@@ -124,4 +124,30 @@ class APIcontroller extends Controller
     }
 
 
+
+    public function deleteStudent($id){
+
+
+
+        $data = Student::find($id);
+
+        $result =  $data->delete();
+
+           if ($result) {
+
+               return [
+                'result' => 'successfully deleted!'
+               ];
+           }
+           else {
+
+            return [
+                'result' => 'fail deleted!'
+               ];
+
+           }
+
+}
+
+
 }
