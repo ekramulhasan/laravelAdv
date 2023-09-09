@@ -153,8 +153,6 @@ class APIcontroller extends Controller
 
 public function searchStudent($name){
 
-
-
     $data = Student::where('name','like',"%".$name."%")->get();
 
     // if ($data = null) {
@@ -164,7 +162,33 @@ public function searchStudent($name){
     return $data;
 
 
+}
 
+
+public function fileUpload(Request $request){
+
+    // return $request;
+
+    $file_upload = $request->file->store('public/uploads');
+
+   $upload_data = Student::create([
+
+        'student_info_id' => $request->st_info_id,
+        'name' => $request->name,
+        'phone' => $request->phone,
+        'address' => $request->address,
+        'photo' => $request->file->hashName()
+
+    ]);
+
+
+    if ($upload_data) {
+
+        return ['result' => 'successfully upload'];
+
+    }
+    
+    return ['result' => 'fail upload'];
 
 }
 

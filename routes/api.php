@@ -28,3 +28,5 @@ Route::post('/savedata',[APIcontroller::class,'storeStudent']);
 Route::put('/update-data',[APIcontroller::class,'updateStudent']);
 Route::delete('/delete-data/{id}',[APIcontroller::class,'deleteStudent']);
 Route::get('/search-data/{name}',[APIcontroller::class,'searchStudent']);
+
+Route::post('upload-file',[APIcontroller::class,'fileUpload']);
