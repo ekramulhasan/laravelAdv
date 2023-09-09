@@ -65,4 +65,28 @@ class APIcontroller extends Controller
     }
 
 
+    public function storeStudent(Request $request){
+
+     $result =   Student::updateOrCreate([
+
+            'student_info_id' => $request->student_info_id,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'address' => $request->address
+
+        ]);
+
+        if ($result) {
+
+            return "successfully data save!";
+        }
+        else {
+
+            return "fail data save!";
+
+        }
+
+    }
+
+
 }
